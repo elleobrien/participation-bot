@@ -40,7 +40,8 @@ def get_users_who_posted(messages,return_freq=False):
     # Accepts list of message instances
     users = []
     for msg in messages:
-        users.append(msg['user'])
+        if 'user' in msg.keys():
+            users.append(msg['user'])
     if return_freq:
         return_users = collections.Counter(users)
     else:
