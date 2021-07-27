@@ -3,3 +3,4 @@ keys.json
 report.csv
 .idea
 venv/
+.DS_Store
