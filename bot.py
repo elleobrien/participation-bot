@@ -2,15 +2,18 @@ import os
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 import json
-from time import sleep
+from time import sleep, time
 import pandas as pd
 import collections
 import sys
+import datetime
+
 
 def get_client(key_file):
     token = json.load(open(key_file))
     client = WebClient(token=token['token'])
     return(client)
+
 
 def get_channel_id(channel_name, client):
     for result in client.conversations_list(types="public_channel, private_channel"):
@@ -18,35 +21,42 @@ def get_channel_id(channel_name, client):
         for c in channels:
             if c['name'] == channel_name:
                 return(c['id'])
-                
-def get_all_posts_in_channel(channel_name, client, max_pages = 5):
+
+
+def get_all_posts_in_channel(channel_name, client, from_date, to_date, max_pages = 5):
     channel_id = get_channel_id(channel_name, client)
     # Note that this will NOT return the full text of replies to posts.
     all_messages = []
     keep_looking = True
     page = 1
+    from_date = datetime.datetime.strptime(from_date, "%m/%d/%Y").timestamp()
+    to_date = datetime.datetime.strptime(to_date, "%m/%d/%Y").timestamp()
     while keep_looking == True and page < max_pages:
         if page == 1:
-           result = client.conversations_history(channel=channel_id,limit=200)
+           result = client.conversations_history(channel=channel_id,limit=200, oldest=from_date, latest=to_date)
         else:
-            result = client.conversations_history(channel=channel_id,limit=200, cursor=result['response_metadata']['next_cursor'])
+            result = client.conversations_history(channel=channel_id,limit=200, cursor=result['response_metadata']['next_cursor'], oldest=from_date, latest=to_date)
         all_messages = all_messages + result['messages']
         keep_looking = result['has_more']
         sleep(1)
         page +=1    
     return(all_messages)
 
+
 def get_users_who_posted(messages,return_freq=False):
     # Accepts list of message instances
     users = []
+    msg_ts = []
     for msg in messages:
         if 'user' in msg.keys():
             users.append(msg['user'])
+            msg_ts.append(msg['ts'])
     if return_freq:
         return_users = collections.Counter(users)
     else:
         return_users = set(users)
     return(return_users)
+
 
 def get_users_who_replied(messages,return_freq=False):
     # Accepts list of message instances
@@ -60,6 +70,7 @@ def get_users_who_replied(messages,return_freq=False):
         return_users = set(users)
     return(return_users)
 
+
 def get_all_participants_in_channel(messages, return_freq = False):
     posters = get_users_who_posted(messages,return_freq=return_freq)
     repliers = get_users_who_replied(messages,return_freq=return_freq)
@@ -68,6 +79,7 @@ def get_all_participants_in_channel(messages, return_freq = False):
     else:
         all_participants = posters.union(repliers)
     return(all_participants)
+
 
 def user_id_to_uniqname(user_id_list, client):
     uniqnames = []
@@ -88,6 +100,7 @@ def user_counts_to_dataframe(counter,context=None):
         df['context'] = context
     return(df)
 
+
 def make_post_and_reply_summary(messages):
     # Get summaries of post & reply activities
     poster_df = user_counts_to_dataframe(get_users_who_posted(messages,return_freq=True),context='post')
@@ -107,12 +120,14 @@ if __name__ == "__main__":
     # Looks for two arguments: a channel name and an API key file
     channel_name = sys.argv[1]
     key_file = sys.argv[2]
+    from_date = sys.argv[3] if len(sys.argv) >= 4 else '04/08/2021'  # date of Elle's welcome message in the channel
+    to_date = sys.argv[4] if len(sys.argv) >= 5 else datetime.datetime.today().strftime('%m/%d/%Y')
     
     client = get_client(key_file)
     channel_id = get_channel_id(channel_name, client)
 
     # Get messages in the channel of choice
-    messages = get_all_posts_in_channel(channel_name, client)
+    messages = get_all_posts_in_channel(channel_name, client, from_date, to_date)
     participation_df = make_post_and_reply_summary(messages)
 
     # Write to a .csv file
