@@ -1,6 +1,6 @@
 import pandas as pd
 
-assignment_id = "Fourth Slack Stand-up Reports and Responses"
+assignment_id = "First Slack Stand-up Reports and Responses"
 
 
 # Get the student uniqnames
@@ -47,6 +47,3 @@ total_score_df.reset_index()
 
 filename = "grades/" + "_".join(assignment_id.split(" ")) + ".csv"
 total_score_df.to_csv(filename)
-
-
-

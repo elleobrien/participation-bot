@@ -1,6 +1,48 @@
-first,last,email,team,Id,,
-buddy,student,buddy@umich.edu,0,111110,,
-friend,learner,friend@umich.edu,0,111111,,
-oldchum,smartypants,oldchum@umich.edu,1,111112,,
-goodman,pupil,goodman@umich.edu,1,111113,,
-bffl,schoolfellow,bffl@umich.edu,2,111114,,
+first,last,name,email,team
+Allison,Bergmann,Allison Bergmann,arbergm@umich.edu,1
+Christopher,Westendorf,Christopher Westendorf,cwestend@umich.edu,1
+Armand,Khachatourian,Armand Khachatourian,armandk@umich.edu,1
+Allison,Yih,Allison Yih,ayih@umich.edu,2
+Nicholas,Huh,Nicholas Huh,nhuh@umich.edu,2
+Anandakumar,Kamalasekaran,Anandakumar Kamalasekaran,akamalas@umich.edu,3
+Shrikant,Basarkod,Shrikant Basarkod,sbasarko@umich.edu,3
+Anel,Nurkayeva,Anel Nurkayeva,anel@umich.edu,4
+Stephanie,Myott-Beebe,Stephanie Myott-Beebe,smyottb@umich.edu,4
+Shiran,Zhang,Shiran Zhang,shiranz@umich.edu,4
+Sarah,Gonzalez,Sarah Gonzalez,gonzalsa@umich.edu,4
+Annette,Han,Annette Thuc-Anh Han,hananh@umich.edu,5
+Yeseul,Kim,Yeseul Kim,yeseulk@umich.edu,5
+Beilei,He,Beilei He,beileihe@umich.edu,5
+Anup,Merkap,Anup Merkap,amerkap@umich.edu,6
+Panini,Mokrala,Panini Mohan Mokrala,mokrala@umich.edu,6
+Aparna,Vadlamudi,Aparna Vadlamudi,apsharma@umich.edu,6
+Bradley,Thompson,Bradley Thompson,btho@umich.edu,7
+Kunal,Srivastava,Kunal Srivastava,ksrivast@umich.edu,7
+Lindsay,Durand,Lindsay Durand,lrdurand@umich.edu,7
+Cameron,Lyons,Cameron Lyons,camlyons@umich.edu,8
+Thomas,Easley,Thomas Easley,tgeasley@umich.edu,8
+Carlo,Tak,Carlo Tak,carlotak@umich.edu,9
+Michael,Penrose,Michael Penrose,penrosem@umich.edu,9
+Dylan,Kinder,Dylan Kinder,kinderdr@umich.edu,10
+Michael,Phillips,Michael Phillips,mjphil@umich.edu,10
+Ryan,Maloney,Ryan Maloney,ryamal@umich.edu,10
+David,Hernandez,David Hernandez,davidhdz@umich.edu,11
+Naga,Sanka,Naga Sanka,nsanka@umich.edu,11
+Sheila,Pietono,Sheila Victoria Pietono,sheilavp@umich.edu,11
+Diane,Boaye,Diane Prisca Onguetou Boaye,onguetou@umich.edu,12
+James,Norberg,James Norberg,jnorb@umich.edu,12
+Heewoon,Kang,Heewoon Kang,heewoon@umich.edu,13
+Koon,Ho,Koon Leong Ho,klho@umich.edu,13
+Ho,Wong,Ho Fai Wong,howong@umich.edu,13
+Iain,King-Moore,Iain King-Moore,iainkm@umich.edu,14
+Mike,Wise,Mike Wise,mwise@umich.edu,14
+Logan,Crawford,Logan Crawford,logantc@umich.edu,15
+Scott,Deittrick,Scott Deittrick,shdeitt@umich.edu,15
+Nicholas,Essner,Nicholas Essner,npessner@umich.edu,15
+Sravan,Rajupalem,Sravan Rajupalem,sravanr@umich.edu,16
+Victor,Ruiz,Victor Ruiz,dsvictor@umich.edu,16
+Renzo,Maldonado,Renzo Maldonado,renzom@umich.edu,16
+Aidan,Horvath,Aidan Horvath,haidan@umich.edu,17
+Brooke,Hawkins,Brooke Hawkins,brookelh@umich.edu,18
+James,Garay,James Garay,jgaray@umich.edu,19
+Viraj,Pande,Viraj Pande,virajp@umich.edu,x
