@@ -5,3 +5,4 @@ report.csv
 venv/
 .DS_Store
 student_team_dictionary.csv
+grades/*
