@@ -4,7 +4,7 @@ assignment_id = "First Slack Stand-up Reports and Responses"
 
 
 # Get the student uniqnames
-team_df = pd.read_csv("students/student_team_dictionary.csv")
+team_df = pd.read_csv("students/fa22_student_team_roster.csv")
 team_df["uniq_name"] = team_df["email"].str.replace("@umich.edu","")
 
 # For each group that posted a standup, give everyone in the group credit

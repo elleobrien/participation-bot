@@ -13,12 +13,12 @@ Slack App OAuth tokens should have `channels:read`, `channels:history`, and `use
 ### Usage of bot.py
 
 ```
-$ python bot.py <channel-name> <api-key-file> <from-date> <to-date>
+$ python bot.py <channel-name> <api-key-file> <from-date> <exclusive-to-date>
 ```
 
 For example,
 ```
-$ python bot.py siads697_fa21_001_standups keys.json 10/30/2021 11/07/2021
+$ python bot.py siads699_fa22_002_standups keys.json 10/20/2022 10/28/2022
 ```
 
 If the channel is private, you must be a member of the channel and have the proper scope attributed to your API keys.
